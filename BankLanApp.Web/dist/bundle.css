@@ -1,0 +1,53 @@
+* {
+  border-radius: 0 !important; }
+
+.navbar {
+  background-color: #212121;
+  border-radius: 0;
+  margin-bottom: 0;
+  border: 0; }
+  @media (min-width: 780px) {
+    .navbar {
+      height: 60px; } }
+  @media (min-width: 780px) {
+    .navbar .navbar-header {
+      height: 60px; } }
+  .navbar .navbar-header #toggle-meny-knapp {
+    height: 60px;
+    background-color: #1f1f1f;
+    border: none;
+    font-size: 2em;
+    color: white; }
+  .navbar .navbar-header .navbar-brand {
+    margin: 0;
+    padding: 10px; }
+    @media (min-width: 780px) {
+      .navbar .navbar-header .navbar-brand {
+        height: 60px; } }
+    .navbar .navbar-header .navbar-brand img {
+      height: 100%; }
+  @media (min-width: 780px) {
+    .navbar .nav {
+      height: 60px; } }
+  @media (min-width: 780px) {
+    .navbar .nav li {
+      height: 60px; } }
+  .navbar .nav li a {
+    color: white; }
+    @media (min-width: 780px) {
+      .navbar .nav li a {
+        height: 60px;
+        line-height: 30px; } }
+  .navbar .nav li a:hover {
+    color: #337ab7; }
+  .navbar .nav li a:visited {
+    color: white; }
+
+.panel {
+  border-color: #ddd; }
+  .panel .panel-heading {
+    background-color: #212121 !important; }
+    .panel .panel-heading .panel-title {
+      color: white; }
+
+/*# sourceMappingURL=bundle.css.map*/

@@ -1,0 +1,20 @@
+* {
+  border-radius: 0 !important; }
+
+.panel {
+  max-width: 900px;
+  margin: 5em auto;
+  border-color: #ddd; }
+  .panel .panel-heading {
+    background-color: #212121;
+    border-radius: 0; }
+    .panel .panel-heading .panel-title {
+      color: white; }
+  .panel .panel-body .form-control {
+    border-radius: 0; }
+  .panel .panel-body .input-group-addon {
+    border-radius: 0; }
+  .panel .panel-footer .btn {
+    border-radius: 0; }
+
+/*# sourceMappingURL=main.css.map*/
