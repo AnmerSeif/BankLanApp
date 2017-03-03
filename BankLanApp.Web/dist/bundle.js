@@ -50,7 +50,7 @@
 	__webpack_require__(/*! bootstrap-loader */1);
 	__webpack_require__(/*! ./src */26);
 	__webpack_require__(/*! C:\Users\anmer\documents\visual studio 2015\Projects\BankLanApp.API\BankLanApp.Web\src/index.jsx */26);
-	module.exports = __webpack_require__(/*! C:\Users\anmer\documents\visual studio 2015\Projects\BankLanApp.API\BankLanApp.Web\src/sass/main.scss */263);
+	module.exports = __webpack_require__(/*! C:\Users\anmer\documents\visual studio 2015\Projects\BankLanApp.API\BankLanApp.Web\src/sass/main.scss */267);
 
 
 /***/ },
@@ -13222,9 +13222,11 @@
 	
 	var _LanKalkulator = __webpack_require__(/*! ./components/LanKalkulator/LanKalkulator.jsx */ 260);
 	
-	var _Soknader = __webpack_require__(/*! ./components/Soknader/Soknader.jsx */ 261);
+	var _Soknader = __webpack_require__(/*! ./components/Soknader/Soknader.jsx */ 263);
 	
-	var _FinnerIkkeSiden = __webpack_require__(/*! ./FinnerIkkeSiden.jsx */ 262);
+	var _SoknadRegistrering = __webpack_require__(/*! ./components/SoknadRegistrering/SoknadRegistrering.jsx */ 264);
+	
+	var _FinnerIkkeSiden = __webpack_require__(/*! ./FinnerIkkeSiden.jsx */ 266);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -13272,7 +13274,8 @@
 	        { component: HeleSiden },
 	        _react2.default.createElement(_reactRouter.Redirect, { from: '/', to: '/lanKalkulator' }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'lanKalkulator', component: _LanKalkulator.LanKalkulator }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'soknader', component: _Soknader.Soknader })
+	        _react2.default.createElement(_reactRouter.Route, { path: 'soknader', component: _Soknader.Soknader }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'sokandRegistrering', component: _SoknadRegistrering.SoknadRegistrering })
 	    ),
 	    _react2.default.createElement(_reactRouter.Route, { path: '*', component: _FinnerIkkeSiden.FinnerIkkeSiden })
 	), document.getElementById('root'));
@@ -40308,50 +40311,58 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'nav',
-	        { className: 'navbar navbar-default' },
+	        'div',
+	        { id: 'min-nav' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
+	          'nav',
+	          { className: 'navbar navbar-default' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'navbar-header' },
+	            { className: 'container-fluid' },
 	            _react2.default.createElement(
-	              'button',
-	              { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+	              'div',
+	              { className: 'navbar-header' },
 	              _react2.default.createElement(
-	                'span',
-	                { className: 'sr-only' },
-	                'Toggle navigation'
+	                'button',
+	                { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'sr-only' },
+	                  'Toggle navigation'
+	                ),
+	                _react2.default.createElement('span', { className: 'icon-bar' }),
+	                _react2.default.createElement('span', { className: 'icon-bar' }),
+	                _react2.default.createElement('span', { className: 'icon-bar' })
 	              ),
-	              _react2.default.createElement('span', { className: 'icon-bar' }),
-	              _react2.default.createElement('span', { className: 'icon-bar' }),
-	              _react2.default.createElement('span', { className: 'icon-bar' })
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: 'navbar-brand', to: '/' },
+	                _react2.default.createElement('img', { src: 'http://imgh.us/logo-transparent.svg' })
+	              )
 	            ),
-	            _react2.default.createElement(_reactRouter.Link, { className: 'navbar-brand', to: '/' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
 	            _react2.default.createElement(
-	              'ul',
-	              { className: 'nav navbar-nav' },
+	              'div',
+	              { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
 	              _react2.default.createElement(
-	                'li',
-	                null,
+	                'ul',
+	                { className: 'nav navbar-nav' },
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/lanKalkulator' },
-	                  'L\xE5ne Kalkulator'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/lanKalkulator' },
+	                    'L\xE5ne Kalkulator'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/soknader' },
-	                  'Soknader'
+	                  'li',
+	                  null,
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/soknader' },
+	                    'S\xF8knader'
+	                  )
 	                )
 	              )
 	            )
@@ -40371,12 +40382,336 @@
   \********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports.LanKalkulator = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 204);
+	
+	var _LanKalkulatorForm = __webpack_require__(/*! ./LanKalkulatorForm.jsx */ 261);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LanKalkulator = exports.LanKalkulator = function (_React$Component) {
+	    _inherits(LanKalkulator, _React$Component);
+	
+	    function LanKalkulator(props, context) {
+	        _classCallCheck(this, LanKalkulator);
+	
+	        var _this = _possibleConstructorReturn(this, (LanKalkulator.__proto__ || Object.getPrototypeOf(LanKalkulator)).call(this, props, context));
+	
+	        _this.state = {
+	            lan: {
+	                belop: 100000,
+	                antall_ar: 3,
+	                kostnader_per_ar: 3175
+	            },
+	            feil: {}
+	        };
+	
+	        _this.context = context;
+	        _this.onInputChange = _this.onInputChange.bind(_this);
+	        _this.onSliderChange = _this.onSliderChange.bind(_this);
+	        _this.regn = _this.regn.bind(_this);
+	        return _this;
+	    }
+	
+	    _createClass(LanKalkulator, [{
+	        key: 'valider_felt',
+	        value: function valider_felt(nokkel, verdi) {
+	            this.state.feil = {};
+	            var ok = true;
+	            if (nokkel === 'belop') {
+	                var regex = /^\d*$/;
+	                if (!regex.test(verdi)) {
+	                    this.state.feil.belop = 'Kun tall er tillatt!';
+	                    ok = false;
+	                }
+	                if (parseInt(verdi) > 5000000) {
+	                    this.state.feil.belop = 'Kan ikke søke en lån sum som er høyere enn 5 000 000';
+	                    ok = false;
+	                }
+	            } else if (nokkel === 'antall_ar') {
+	                var regex = /^\d*$/;
+	                if (!regex.test(verdi)) {
+	                    this.state.feil.antall_ar = 'Kun tall er tillatt!';
+	                    ok = false;
+	                }
+	                if (parseInt(verdi) > 30) {
+	                    this.state.feil.antall_ar = 'Kan ikke sette nedbatlings tid til lengre enn 30 år';
+	                    ok = false;
+	                }
+	            } else return false;
+	
+	            return ok;
+	        }
+	    }, {
+	        key: 'onInputChange',
+	        value: function onInputChange(event) {
+	            var nokkel = event.target.name;
+	            var verdi = event.target.value;
+	            if (!this.valider_felt(nokkel, verdi)) return this.setState({ feil: this.state.feil });
+	
+	            this.state.lan[nokkel] = verdi;
+	            this.regn();
+	            return this.setState({ lan: this.state.lan });
+	        }
+	    }, {
+	        key: 'onSliderChange',
+	        value: function onSliderChange(event) {
+	            var nokkel = event.target.name;
+	            var verdi = event.target.value;
+	            this.state.feil[nokkel] = "";
+	            this.state.lan[nokkel] = verdi;
+	            this.regn();
+	            return this.setState({ lan: this.state.lan, feil: this.state.feil });
+	        }
+	    }, {
+	        key: 'valider_alle_felter',
+	        value: function valider_alle_felter() {
+	            this.state.feil = {};
+	            var belop_felt = this.state.lan.belop;
+	            var antall_ar_felt = this.state.lan.antall_ar;
+	            var ok = true;
+	
+	            if (belop_felt.length < 1) {
+	                this.state.feil.belop = 'Du må oppgi beløp!';
+	                ok = false;
+	            } else if (parseInt(belop_felt) < 10000) {
+	                this.state.feil.belop = 'Kan ikke søke en lån sum som er lavere enn 10000';
+	                ok = false;
+	            }
+	            if (antall_ar_felt.length < 1) {
+	                this.state.feil.antall_ar = 'Du må oppgi antall år!';
+	                ok = false;
+	            } else if (parseInt(antall_ar_felt) < 3) {
+	                this.state.feil.antall_ar = 'Kan ikke sette nedbatlings tid som er lavere enn 3 år';
+	                ok = false;
+	            }
+	
+	            return ok;
+	        }
+	    }, {
+	        key: 'regn',
+	        value: function regn() {
+	            if (!this.valider_alle_felter()) return this.setState({ feil: this.state.feil });
+	            var r = 0.07;
+	            var G = parseInt(this.state.lan.belop);
+	            var n = parseInt(this.state.lan.antall_ar);
+	            var Y = r * G / (1 - Math.pow(1 + r, -n));
+	            Y = Y / 12;
+	            Y = Math.floor(Y);
+	            this.state.lan.kostnader_per_ar = Y;
+	            return this.setState({ lan: this.state.lan });
+	        }
+	    }, {
+	        key: 'gaVidere',
+	        value: function gaVidere(e) {
+	            e.preventDefault();
+	            if (!this.valider_alle_felter()) return this.setState({ feil: this.state.feil });
+	            this.regn();
+	            this.context.router.push({ pathname: '/sokandRegistrering', query: this.state.lan });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'panel panel-primary' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-heading' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-title' },
+	                        'L\xE5ne kalkulator'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-body' },
+	                    _react2.default.createElement(_LanKalkulatorForm.LanKalkulatorForm, {
+	                        lan: this.state.lan,
+	                        onInputChange: this.onInputChange,
+	                        onSliderChange: this.onSliderChange,
+	                        feil: this.state.feil })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-footer' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-sm-offset-10 col-sm-2' },
+	                            _react2.default.createElement(
+	                                'button',
+	                                { onClick: this.gaVidere.bind(this), className: 'btn btn-success btn-block' },
+	                                'G\xE5 Videre',
+	                                _react2.default.createElement('span', { className: 'glyphicon glyphicon-chevron-right', 'aria-hidden': 'true' })
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return LanKalkulator;
+	}(_react2.default.Component);
+	
+	;
+	
+	LanKalkulator.contextTypes = {
+	    router: _react2.default.PropTypes.object.isRequired
+	};
+
+/***/ },
+/* 261 */
+/*!************************************************************!*\
+  !*** ./src/components/LanKalkulator/LanKalkulatorForm.jsx ***!
+  \************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.LanKalkulatorForm = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Slider = __webpack_require__(/*! ../../common/Slider.jsx */ 295);
+	
+	var _TextInput = __webpack_require__(/*! ../../common/TextInput.jsx */ 262);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LanKalkulatorForm = exports.LanKalkulatorForm = function (_React$Component) {
+	    _inherits(LanKalkulatorForm, _React$Component);
+	
+	    function LanKalkulatorForm() {
+	        _classCallCheck(this, LanKalkulatorForm);
+	
+	        return _possibleConstructorReturn(this, (LanKalkulatorForm.__proto__ || Object.getPrototypeOf(LanKalkulatorForm)).apply(this, arguments));
+	    }
+	
+	    _createClass(LanKalkulatorForm, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'form',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12 col-sm-12' },
+	                        _react2.default.createElement(_TextInput.TextInput, { value: this.props.lan.belop,
+	                            id: 'belop',
+	                            label: 'Beløp',
+	                            feil: this.props.feil.belop,
+	                            formClass: 'slider-verdi-container',
+	                            inputGroupAddonClass: 'hide',
+	                            inputClass: 'slider-verdi',
+	                            onInputChange: this.props.onInputChange }),
+	                        _react2.default.createElement(_Slider.Slider, { value: this.props.lan.belop,
+	                            id: 'belop',
+	                            label: 'Beløp',
+	                            addon_text: 'Kr',
+	                            min: 10000,
+	                            max: 5000000,
+	                            step: 100,
+	                            enhet: 'Kr',
+	                            onSliderChange: this.props.onSliderChange })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12 col-sm-12' },
+	                        _react2.default.createElement('hr', null),
+	                        _react2.default.createElement(_TextInput.TextInput, { value: this.props.lan.antall_ar,
+	                            id: 'antall_ar',
+	                            label: 'Antall år',
+	                            feil: this.props.feil.antall_ar,
+	                            formClass: 'slider-verdi-container',
+	                            inputGroupAddonClass: 'hide',
+	                            inputClass: 'slider-verdi',
+	                            onInputChange: this.props.onInputChange }),
+	                        _react2.default.createElement(_Slider.Slider, { value: this.props.lan.antall_ar,
+	                            id: 'antall_ar',
+	                            label: 'Antall år',
+	                            addon_text: 'År',
+	                            min: 3,
+	                            max: 30,
+	                            step: 1,
+	                            enhet: 'År',
+	                            onSliderChange: this.props.onSliderChange })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12 col-sm-12' },
+	                        _react2.default.createElement('hr', null),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { id: 'kostnader' },
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                'Kostnader per m\xE5ned'
+	                            ),
+	                            this.props.lan.kostnader_per_ar,
+	                            '  Kr/Mnd'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return LanKalkulatorForm;
+	}(_react2.default.Component);
+
+/***/ },
+/* 262 */
+/*!**********************************!*\
+  !*** ./src/common/TextInput.jsx ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.TextInput = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -40392,47 +40727,76 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var LanKalkulator = exports.LanKalkulator = function (_React$Component) {
-	    _inherits(LanKalkulator, _React$Component);
+	var TextInput = exports.TextInput = function (_React$Component) {
+	    _inherits(TextInput, _React$Component);
 	
-	    function LanKalkulator() {
-	        _classCallCheck(this, LanKalkulator);
+	    function TextInput(props) {
+	        _classCallCheck(this, TextInput);
 	
-	        return _possibleConstructorReturn(this, (LanKalkulator.__proto__ || Object.getPrototypeOf(LanKalkulator)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (TextInput.__proto__ || Object.getPrototypeOf(TextInput)).call(this, props));
+	
+	        if (_this.props.glyphicon) {
+	            _this.state = { glyphicon: "glyphicon glyphicon-" + _this.props.glyphicon };
+	        } else {
+	            _this.state = { addon_text: _this.props.addon_text };
+	        }
+	        return _this;
 	    }
 	
-	    _createClass(LanKalkulator, [{
+	    _createClass(TextInput, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "panel panel-primary" },
+	                { className: this.props.formClass || "form-group" },
+	                _react2.default.createElement(
+	                    "label",
+	                    { htmlFor: this.props.id },
+	                    this.props.label
+	                ),
 	                _react2.default.createElement(
 	                    "div",
-	                    { className: "panel-heading" },
+	                    { className: "input-group" },
 	                    _react2.default.createElement(
 	                        "div",
-	                        { className: "panel-title" },
-	                        "L\xE5ne kalkulator"
-	                    )
+	                        { className: this.props.inputGroupAddonClass || "input-group-addon" },
+	                        _react2.default.createElement(
+	                            "span",
+	                            { className: this.state.glyphicon, "aria-hidden": "true" },
+	                            this.state.addon_text
+	                        )
+	                    ),
+	                    _react2.default.createElement("input", { id: this.props.id,
+	                        name: this.props.id,
+	                        type: "text",
+	                        className: this.props.inputClass || "form-control",
+	                        placeholder: this.props.placeholder,
+	                        "aria-describedby": "basic-addon1",
+	                        value: this.props.value,
+	                        onChange: this.props.onInputChange,
+	                        disabled: this.props.disabled
+	                    })
 	                ),
-	                _react2.default.createElement("div", { className: "panel-body" }),
-	                _react2.default.createElement("div", { className: "panel-footer" })
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "text-danger" },
+	                    this.props.feil
+	                )
 	            );
 	        }
 	    }]);
 	
-	    return LanKalkulator;
+	    return TextInput;
 	}(_react2.default.Component);
 
 /***/ },
-/* 261 */
+/* 263 */
 /*!**********************************************!*\
   !*** ./src/components/Soknader/Soknader.jsx ***!
   \**********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -40456,37 +40820,226 @@
 	var Soknader = exports.Soknader = function (_React$Component) {
 	    _inherits(Soknader, _React$Component);
 	
-	    function Soknader() {
+	    function Soknader(props) {
 	        _classCallCheck(this, Soknader);
 	
-	        return _possibleConstructorReturn(this, (Soknader.__proto__ || Object.getPrototypeOf(Soknader)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Soknader.__proto__ || Object.getPrototypeOf(Soknader)).call(this, props));
+	
+	        _this.state = {
+	            soknader: [],
+	            loading: true,
+	            sokTekst: ''
+	        };
+	
+	        _this.hentAlleSoknader = _this.hentAlleSoknader.bind(_this);
+	        _this.onInputChange = _this.onInputChange.bind(_this);
+	        _this.onKeyPress = _this.onKeyPress.bind(_this);
+	        _this.sok = _this.sok.bind(_this);
+	        return _this;
 	    }
 	
 	    _createClass(Soknader, [{
-	        key: "render",
-	        value: function render() {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.hentAlleSoknader();
+	        }
+	    }, {
+	        key: 'hentAlleSoknader',
+	        value: function hentAlleSoknader() {
+	            fetch('http://localhost:9967/api/BankLan', {
+	                method: 'GET'
+	            }).then(function (response) {
+	                return response.json();
+	            }).then(function (json) {
+	                this.setState({
+	                    soknader: json,
+	                    loading: false,
+	                    error: null
+	                });
+	            }.bind(this)).catch(function (err) {
+	                this.setState({
+	                    loading: false,
+	                    error: err
+	                });
+	            }.bind(this));
+	        }
+	    }, {
+	        key: 'onInputChange',
+	        value: function onInputChange(event) {
+	            event.preventDefault();
+	            this.state.sokTekst = event.target.value;
+	            return this.setState({ sokTekst: this.state.sokTekst });
+	        }
+	    }, {
+	        key: 'onKeyPress',
+	        value: function onKeyPress(event) {
+	            if (event.charCode === 13) this.sok();
+	        }
+	    }, {
+	        key: 'sok',
+	        value: function sok() {
+	            var personnummer = this.state.sokTekst;
+	            if (personnummer.length === 0) return this.hentAlleSoknader();
+	            fetch('http://localhost:9967/api/BankLan/Get?personnummer=' + personnummer).then(function (response) {
+	                return response.json();
+	            }.bind(this)).then(function (json) {
+	                this.setState({
+	                    soknader: json,
+	                    error: null
+	                });
+	            }.bind(this)).catch(function (err) {
+	                this.setState({
+	                    error: err
+	                });
+	            }.bind(this));
+	        }
+	    }, {
+	        key: 'renderLoading',
+	        value: function renderLoading() {
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "jumbotron" },
+	                'h1',
+	                null,
+	                'Laster inn...'
+	            );
+	        }
+	    }, {
+	        key: 'renderSoknader',
+	        value: function renderSoknader() {
+	            return _react2.default.createElement(
+	                'div',
+	                { id: 'soknader-panel', className: 'panel panel-primary' },
 	                _react2.default.createElement(
-	                    "h1",
-	                    null,
-	                    "S\xF8knader!"
+	                    'div',
+	                    { className: 'panel-heading' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-title' },
+	                        'Alle s\xF8knader'
+	                    )
 	                ),
 	                _react2.default.createElement(
-	                    "p",
-	                    null,
-	                    "..."
-	                ),
-	                _react2.default.createElement(
-	                    "p",
+	                    'div',
 	                    null,
 	                    _react2.default.createElement(
-	                        "a",
-	                        { className: "btn btn-primary btn-lg", href: "#", role: "button" },
-	                        "Learn more"
+	                        'div',
+	                        { id: 'sok-toolbar' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'row' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-sm-10' },
+	                                _react2.default.createElement('input', { className: 'form-control', name: 'sokTekst', value: this.state.sokTekst, placeholder: 'Personnummer', onChange: this.onInputChange, onKeyPress: this.onKeyPress })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-sm-2' },
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { className: 'btn btn-success btn-block', onClick: this.sok },
+	                                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-search', 'aria-hidden': 'true' }),
+	                                    ' S\xF8k'
+	                                )
+	                            )
+	                        )
 	                    )
-	                )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-body' },
+	                    _react2.default.createElement(
+	                        'table',
+	                        { className: 'table' },
+	                        _react2.default.createElement(
+	                            'thead',
+	                            null,
+	                            _react2.default.createElement(
+	                                'tr',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Bel\xF8p'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Antall \xE5r'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Konstander per m\xE5ndte'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Personnummer'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Tlf'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'th',
+	                                    null,
+	                                    'Epost'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tbody',
+	                            null,
+	                            this.state.soknader.map(function (v, k) {
+	                                return _react2.default.createElement(
+	                                    'tr',
+	                                    { key: k },
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        v.belop
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        v.antall_ar
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        v.kostnader
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        v.kunde.personnummer
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        v.kunde.tlf
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'td',
+	                                        null,
+	                                        v.kunde.epost
+	                                    )
+	                                );
+	                            })
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('div', { className: 'panel-footer' })
+	            );
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                this.state.loading ? this.renderLoading() : this.renderSoknader()
 	            );
 	        }
 	    }]);
@@ -40495,7 +41048,341 @@
 	}(_react2.default.Component);
 
 /***/ },
-/* 262 */
+/* 264 */
+/*!******************************************************************!*\
+  !*** ./src/components/SoknadRegistrering/SoknadRegistrering.jsx ***!
+  \******************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.SoknadRegistrering = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 14);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	__webpack_require__(/*! whatwg-fetch */ 269);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 204);
+	
+	var _SoknadRegistreringForm = __webpack_require__(/*! ./SoknadRegistreringForm.jsx */ 265);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SoknadRegistrering = exports.SoknadRegistrering = function (_React$Component) {
+	    _inherits(SoknadRegistrering, _React$Component);
+	
+	    function SoknadRegistrering(props, context) {
+	        _classCallCheck(this, SoknadRegistrering);
+	
+	        var _this = _possibleConstructorReturn(this, (SoknadRegistrering.__proto__ || Object.getPrototypeOf(SoknadRegistrering)).call(this, props, context));
+	
+	        _this.context = context;
+	
+	        _this.state = {
+	            soknad: {
+	                belop: _this.props.location.query.belop,
+	                antall_ar: _this.props.location.query.antall_ar,
+	                kostnader: _this.props.location.query.kostnader_per_ar,
+	                kunde: {
+	                    personnummer: '',
+	                    tlf: '',
+	                    epost: ''
+	                }
+	            },
+	            loading: false,
+	            feil: {}
+	        };
+	        _this.onInputChange = _this.onInputChange.bind(_this);
+	        _this.registrer = _this.registrer.bind(_this);
+	        return _this;
+	    }
+	
+	    _createClass(SoknadRegistrering, [{
+	        key: 'onInputChange',
+	        value: function onInputChange(event) {
+	            var nokkel = event.target.name;
+	            var verdi = event.target.value;
+	            this.valider_felt(nokkel, verdi);
+	            this.state.soknad.kunde[nokkel] = verdi;
+	            return this.setState({ kunde: this.state.soknad.kunde, feil: this.state.feil });
+	        }
+	    }, {
+	        key: 'valider_felt',
+	        value: function valider_felt(nokkel, verdi) {
+	            var ok = true;
+	            if (nokkel === 'personnummer') {
+	                var regex = /^\d{11}$/;
+	                if (!regex.test(verdi)) {
+	                    this.state.feil.personnummer = 'Personnummer skal være 11 siffer!';
+	                    ok = false;
+	                } else this.state.feil.personnummer = '';
+	            } else if (nokkel === 'tlf') {
+	                var regex = /^\d{8}$/;
+	                if (!regex.test(verdi)) {
+	                    this.state.feil.tlf = 'Telefon skal være 8 siffer!';
+	                    ok = false;
+	                } else this.state.feil.tlf = '';
+	            } else if (nokkel === 'epost') {
+	                var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	                if (!regex.test(verdi)) {
+	                    this.state.feil.epost = 'Epost er feil!';
+	                    ok = false;
+	                } else this.state.feil.epost = '';
+	            } else {
+	                return false;
+	            }
+	
+	            return ok;
+	        }
+	    }, {
+	        key: 'valider_alle_felter',
+	        value: function valider_alle_felter() {
+	            var ok = true;
+	            for (var nokkel in this.state.soknad.kunde) {
+	                if (!this.valider_felt(nokkel, this.state.soknad.kunde[nokkel])) ok = false;
+	            }
+	            return ok;
+	        }
+	    }, {
+	        key: 'post_soknad_til_server',
+	        value: function post_soknad_til_server() {
+	            fetch('http://localhost:9967/api/BankLan', {
+	                method: 'POST',
+	                headers: {
+	                    'Content-Type': 'application/json'
+	                },
+	                body: JSON.stringify(this.state.soknad)
+	            }).then(function (response) {
+	                return response.json();
+	            }).then(function (j) {
+	                if (j) {
+	                    this.context.router.push('/soknader');
+	                }
+	            }.bind(this));
+	        }
+	    }, {
+	        key: 'registrer',
+	        value: function registrer(e) {
+	            e.preventDefault();
+	            if (!this.valider_alle_felter()) {
+	                return this.setState({ feil: this.state.feil });
+	            }
+	            this.setState({ loading: true });
+	            this.post_soknad_til_server();
+	        }
+	    }, {
+	        key: 'renderLoading',
+	        value: function renderLoading() {
+	            return _react2.default.createElement(
+	                'h3',
+	                null,
+	                'Vennligst Vent!'
+	            );
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'panel panel-primary' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-heading' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-title' },
+	                        'Registrer s\xF8knad'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-body' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-4' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'lan-felt' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'lan-felt-tittel' },
+	                                    'Bel\xF8p'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'lan-felt-verdi' },
+	                                    this.state.soknad.belop,
+	                                    ' Kr'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-4' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'lan-felt' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'lan-felt-tittel' },
+	                                    'Antall \xE5r'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'lan-felt-verdi' },
+	                                    this.state.soknad.antall_ar,
+	                                    ' \xC5r'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-4' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'lan-felt' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'lan-felt-tittel' },
+	                                    'Kostnader'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'lan-felt-verdi' },
+	                                    this.state.soknad.kostnader,
+	                                    ' Kr per m\xE5ndte'
+	                                )
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(_SoknadRegistreringForm.SoknadRegistreringForm, {
+	                        kunde: this.state.soknad.kunde,
+	                        onInputChange: this.onInputChange,
+	                        feil: this.state.feil })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-footer' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-sm-2 col-sm-offset-10' },
+	                            this.state.loading ? this.renderLoading() : _react2.default.createElement(
+	                                'button',
+	                                { onClick: this.registrer, className: 'btn btn-success btn-block', type: 'submit' },
+	                                ' Registrer '
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return SoknadRegistrering;
+	}(_react2.default.Component);
+	
+	SoknadRegistrering.contextTypes = {
+	    router: _react2.default.PropTypes.object.isRequired
+	};
+
+/***/ },
+/* 265 */
+/*!**********************************************************************!*\
+  !*** ./src/components/SoknadRegistrering/SoknadRegistreringForm.jsx ***!
+  \**********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.SoknadRegistreringForm = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _TextInput = __webpack_require__(/*! ../../common/TextInput.jsx */ 262);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SoknadRegistreringForm = exports.SoknadRegistreringForm = function (_React$Component) {
+	    _inherits(SoknadRegistreringForm, _React$Component);
+	
+	    function SoknadRegistreringForm() {
+	        _classCallCheck(this, SoknadRegistreringForm);
+	
+	        return _possibleConstructorReturn(this, (SoknadRegistreringForm.__proto__ || Object.getPrototypeOf(SoknadRegistreringForm)).apply(this, arguments));
+	    }
+	
+	    _createClass(SoknadRegistreringForm, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'form',
+	                null,
+	                _react2.default.createElement(_TextInput.TextInput, {
+	                    value: this.props.kunde.personnummer,
+	                    id: 'personnummer',
+	                    label: 'Personnummer',
+	                    glyphicon: 'user',
+	                    feil: this.props.feil.personnummer,
+	                    onInputChange: this.props.onInputChange }),
+	                _react2.default.createElement(_TextInput.TextInput, {
+	                    value: this.props.kunde.tlf,
+	                    id: 'tlf',
+	                    label: 'Telefon',
+	                    glyphicon: 'phone',
+	                    feil: this.props.feil.tlf,
+	                    onInputChange: this.props.onInputChange }),
+	                _react2.default.createElement(_TextInput.TextInput, {
+	                    value: this.props.kunde.epost,
+	                    id: 'epost',
+	                    label: 'Epost',
+	                    glyphicon: 'envelope',
+	                    feil: this.props.feil.epost,
+	                    onInputChange: this.props.onInputChange })
+	            );
+	        }
+	    }]);
+	
+	    return SoknadRegistreringForm;
+	}(_react2.default.Component);
+
+/***/ },
+/* 266 */
 /*!*********************************!*\
   !*** ./src/FinnerIkkeSiden.jsx ***!
   \*********************************/
@@ -40554,13 +41441,578 @@
 	}(_react2.default.Component);
 
 /***/ },
-/* 263 */
+/* 267 */
 /*!****************************!*\
   !*** ./src/sass/main.scss ***!
   \****************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 268 */,
+/* 269 */
+/*!*********************************!*\
+  !*** ./~/whatwg-fetch/fetch.js ***!
+  \*********************************/
+/***/ function(module, exports) {
+
+	(function(self) {
+	  'use strict';
+	
+	  if (self.fetch) {
+	    return
+	  }
+	
+	  var support = {
+	    searchParams: 'URLSearchParams' in self,
+	    iterable: 'Symbol' in self && 'iterator' in Symbol,
+	    blob: 'FileReader' in self && 'Blob' in self && (function() {
+	      try {
+	        new Blob()
+	        return true
+	      } catch(e) {
+	        return false
+	      }
+	    })(),
+	    formData: 'FormData' in self,
+	    arrayBuffer: 'ArrayBuffer' in self
+	  }
+	
+	  if (support.arrayBuffer) {
+	    var viewClasses = [
+	      '[object Int8Array]',
+	      '[object Uint8Array]',
+	      '[object Uint8ClampedArray]',
+	      '[object Int16Array]',
+	      '[object Uint16Array]',
+	      '[object Int32Array]',
+	      '[object Uint32Array]',
+	      '[object Float32Array]',
+	      '[object Float64Array]'
+	    ]
+	
+	    var isDataView = function(obj) {
+	      return obj && DataView.prototype.isPrototypeOf(obj)
+	    }
+	
+	    var isArrayBufferView = ArrayBuffer.isView || function(obj) {
+	      return obj && viewClasses.indexOf(Object.prototype.toString.call(obj)) > -1
+	    }
+	  }
+	
+	  function normalizeName(name) {
+	    if (typeof name !== 'string') {
+	      name = String(name)
+	    }
+	    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
+	      throw new TypeError('Invalid character in header field name')
+	    }
+	    return name.toLowerCase()
+	  }
+	
+	  function normalizeValue(value) {
+	    if (typeof value !== 'string') {
+	      value = String(value)
+	    }
+	    return value
+	  }
+	
+	  // Build a destructive iterator for the value list
+	  function iteratorFor(items) {
+	    var iterator = {
+	      next: function() {
+	        var value = items.shift()
+	        return {done: value === undefined, value: value}
+	      }
+	    }
+	
+	    if (support.iterable) {
+	      iterator[Symbol.iterator] = function() {
+	        return iterator
+	      }
+	    }
+	
+	    return iterator
+	  }
+	
+	  function Headers(headers) {
+	    this.map = {}
+	
+	    if (headers instanceof Headers) {
+	      headers.forEach(function(value, name) {
+	        this.append(name, value)
+	      }, this)
+	
+	    } else if (headers) {
+	      Object.getOwnPropertyNames(headers).forEach(function(name) {
+	        this.append(name, headers[name])
+	      }, this)
+	    }
+	  }
+	
+	  Headers.prototype.append = function(name, value) {
+	    name = normalizeName(name)
+	    value = normalizeValue(value)
+	    var oldValue = this.map[name]
+	    this.map[name] = oldValue ? oldValue+','+value : value
+	  }
+	
+	  Headers.prototype['delete'] = function(name) {
+	    delete this.map[normalizeName(name)]
+	  }
+	
+	  Headers.prototype.get = function(name) {
+	    name = normalizeName(name)
+	    return this.has(name) ? this.map[name] : null
+	  }
+	
+	  Headers.prototype.has = function(name) {
+	    return this.map.hasOwnProperty(normalizeName(name))
+	  }
+	
+	  Headers.prototype.set = function(name, value) {
+	    this.map[normalizeName(name)] = normalizeValue(value)
+	  }
+	
+	  Headers.prototype.forEach = function(callback, thisArg) {
+	    for (var name in this.map) {
+	      if (this.map.hasOwnProperty(name)) {
+	        callback.call(thisArg, this.map[name], name, this)
+	      }
+	    }
+	  }
+	
+	  Headers.prototype.keys = function() {
+	    var items = []
+	    this.forEach(function(value, name) { items.push(name) })
+	    return iteratorFor(items)
+	  }
+	
+	  Headers.prototype.values = function() {
+	    var items = []
+	    this.forEach(function(value) { items.push(value) })
+	    return iteratorFor(items)
+	  }
+	
+	  Headers.prototype.entries = function() {
+	    var items = []
+	    this.forEach(function(value, name) { items.push([name, value]) })
+	    return iteratorFor(items)
+	  }
+	
+	  if (support.iterable) {
+	    Headers.prototype[Symbol.iterator] = Headers.prototype.entries
+	  }
+	
+	  function consumed(body) {
+	    if (body.bodyUsed) {
+	      return Promise.reject(new TypeError('Already read'))
+	    }
+	    body.bodyUsed = true
+	  }
+	
+	  function fileReaderReady(reader) {
+	    return new Promise(function(resolve, reject) {
+	      reader.onload = function() {
+	        resolve(reader.result)
+	      }
+	      reader.onerror = function() {
+	        reject(reader.error)
+	      }
+	    })
+	  }
+	
+	  function readBlobAsArrayBuffer(blob) {
+	    var reader = new FileReader()
+	    var promise = fileReaderReady(reader)
+	    reader.readAsArrayBuffer(blob)
+	    return promise
+	  }
+	
+	  function readBlobAsText(blob) {
+	    var reader = new FileReader()
+	    var promise = fileReaderReady(reader)
+	    reader.readAsText(blob)
+	    return promise
+	  }
+	
+	  function readArrayBufferAsText(buf) {
+	    var view = new Uint8Array(buf)
+	    var chars = new Array(view.length)
+	
+	    for (var i = 0; i < view.length; i++) {
+	      chars[i] = String.fromCharCode(view[i])
+	    }
+	    return chars.join('')
+	  }
+	
+	  function bufferClone(buf) {
+	    if (buf.slice) {
+	      return buf.slice(0)
+	    } else {
+	      var view = new Uint8Array(buf.byteLength)
+	      view.set(new Uint8Array(buf))
+	      return view.buffer
+	    }
+	  }
+	
+	  function Body() {
+	    this.bodyUsed = false
+	
+	    this._initBody = function(body) {
+	      this._bodyInit = body
+	      if (!body) {
+	        this._bodyText = ''
+	      } else if (typeof body === 'string') {
+	        this._bodyText = body
+	      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+	        this._bodyBlob = body
+	      } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+	        this._bodyFormData = body
+	      } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+	        this._bodyText = body.toString()
+	      } else if (support.arrayBuffer && support.blob && isDataView(body)) {
+	        this._bodyArrayBuffer = bufferClone(body.buffer)
+	        // IE 10-11 can't handle a DataView body.
+	        this._bodyInit = new Blob([this._bodyArrayBuffer])
+	      } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
+	        this._bodyArrayBuffer = bufferClone(body)
+	      } else {
+	        throw new Error('unsupported BodyInit type')
+	      }
+	
+	      if (!this.headers.get('content-type')) {
+	        if (typeof body === 'string') {
+	          this.headers.set('content-type', 'text/plain;charset=UTF-8')
+	        } else if (this._bodyBlob && this._bodyBlob.type) {
+	          this.headers.set('content-type', this._bodyBlob.type)
+	        } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
+	          this.headers.set('content-type', 'application/x-www-form-urlencoded;charset=UTF-8')
+	        }
+	      }
+	    }
+	
+	    if (support.blob) {
+	      this.blob = function() {
+	        var rejected = consumed(this)
+	        if (rejected) {
+	          return rejected
+	        }
+	
+	        if (this._bodyBlob) {
+	          return Promise.resolve(this._bodyBlob)
+	        } else if (this._bodyArrayBuffer) {
+	          return Promise.resolve(new Blob([this._bodyArrayBuffer]))
+	        } else if (this._bodyFormData) {
+	          throw new Error('could not read FormData body as blob')
+	        } else {
+	          return Promise.resolve(new Blob([this._bodyText]))
+	        }
+	      }
+	
+	      this.arrayBuffer = function() {
+	        if (this._bodyArrayBuffer) {
+	          return consumed(this) || Promise.resolve(this._bodyArrayBuffer)
+	        } else {
+	          return this.blob().then(readBlobAsArrayBuffer)
+	        }
+	      }
+	    }
+	
+	    this.text = function() {
+	      var rejected = consumed(this)
+	      if (rejected) {
+	        return rejected
+	      }
+	
+	      if (this._bodyBlob) {
+	        return readBlobAsText(this._bodyBlob)
+	      } else if (this._bodyArrayBuffer) {
+	        return Promise.resolve(readArrayBufferAsText(this._bodyArrayBuffer))
+	      } else if (this._bodyFormData) {
+	        throw new Error('could not read FormData body as text')
+	      } else {
+	        return Promise.resolve(this._bodyText)
+	      }
+	    }
+	
+	    if (support.formData) {
+	      this.formData = function() {
+	        return this.text().then(decode)
+	      }
+	    }
+	
+	    this.json = function() {
+	      return this.text().then(JSON.parse)
+	    }
+	
+	    return this
+	  }
+	
+	  // HTTP methods whose capitalization should be normalized
+	  var methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
+	
+	  function normalizeMethod(method) {
+	    var upcased = method.toUpperCase()
+	    return (methods.indexOf(upcased) > -1) ? upcased : method
+	  }
+	
+	  function Request(input, options) {
+	    options = options || {}
+	    var body = options.body
+	
+	    if (typeof input === 'string') {
+	      this.url = input
+	    } else {
+	      if (input.bodyUsed) {
+	        throw new TypeError('Already read')
+	      }
+	      this.url = input.url
+	      this.credentials = input.credentials
+	      if (!options.headers) {
+	        this.headers = new Headers(input.headers)
+	      }
+	      this.method = input.method
+	      this.mode = input.mode
+	      if (!body && input._bodyInit != null) {
+	        body = input._bodyInit
+	        input.bodyUsed = true
+	      }
+	    }
+	
+	    this.credentials = options.credentials || this.credentials || 'omit'
+	    if (options.headers || !this.headers) {
+	      this.headers = new Headers(options.headers)
+	    }
+	    this.method = normalizeMethod(options.method || this.method || 'GET')
+	    this.mode = options.mode || this.mode || null
+	    this.referrer = null
+	
+	    if ((this.method === 'GET' || this.method === 'HEAD') && body) {
+	      throw new TypeError('Body not allowed for GET or HEAD requests')
+	    }
+	    this._initBody(body)
+	  }
+	
+	  Request.prototype.clone = function() {
+	    return new Request(this, { body: this._bodyInit })
+	  }
+	
+	  function decode(body) {
+	    var form = new FormData()
+	    body.trim().split('&').forEach(function(bytes) {
+	      if (bytes) {
+	        var split = bytes.split('=')
+	        var name = split.shift().replace(/\+/g, ' ')
+	        var value = split.join('=').replace(/\+/g, ' ')
+	        form.append(decodeURIComponent(name), decodeURIComponent(value))
+	      }
+	    })
+	    return form
+	  }
+	
+	  function parseHeaders(rawHeaders) {
+	    var headers = new Headers()
+	    rawHeaders.split('\r\n').forEach(function(line) {
+	      var parts = line.split(':')
+	      var key = parts.shift().trim()
+	      if (key) {
+	        var value = parts.join(':').trim()
+	        headers.append(key, value)
+	      }
+	    })
+	    return headers
+	  }
+	
+	  Body.call(Request.prototype)
+	
+	  function Response(bodyInit, options) {
+	    if (!options) {
+	      options = {}
+	    }
+	
+	    this.type = 'default'
+	    this.status = 'status' in options ? options.status : 200
+	    this.ok = this.status >= 200 && this.status < 300
+	    this.statusText = 'statusText' in options ? options.statusText : 'OK'
+	    this.headers = new Headers(options.headers)
+	    this.url = options.url || ''
+	    this._initBody(bodyInit)
+	  }
+	
+	  Body.call(Response.prototype)
+	
+	  Response.prototype.clone = function() {
+	    return new Response(this._bodyInit, {
+	      status: this.status,
+	      statusText: this.statusText,
+	      headers: new Headers(this.headers),
+	      url: this.url
+	    })
+	  }
+	
+	  Response.error = function() {
+	    var response = new Response(null, {status: 0, statusText: ''})
+	    response.type = 'error'
+	    return response
+	  }
+	
+	  var redirectStatuses = [301, 302, 303, 307, 308]
+	
+	  Response.redirect = function(url, status) {
+	    if (redirectStatuses.indexOf(status) === -1) {
+	      throw new RangeError('Invalid status code')
+	    }
+	
+	    return new Response(null, {status: status, headers: {location: url}})
+	  }
+	
+	  self.Headers = Headers
+	  self.Request = Request
+	  self.Response = Response
+	
+	  self.fetch = function(input, init) {
+	    return new Promise(function(resolve, reject) {
+	      var request = new Request(input, init)
+	      var xhr = new XMLHttpRequest()
+	
+	      xhr.onload = function() {
+	        var options = {
+	          status: xhr.status,
+	          statusText: xhr.statusText,
+	          headers: parseHeaders(xhr.getAllResponseHeaders() || '')
+	        }
+	        options.url = 'responseURL' in xhr ? xhr.responseURL : options.headers.get('X-Request-URL')
+	        var body = 'response' in xhr ? xhr.response : xhr.responseText
+	        resolve(new Response(body, options))
+	      }
+	
+	      xhr.onerror = function() {
+	        reject(new TypeError('Network request failed'))
+	      }
+	
+	      xhr.ontimeout = function() {
+	        reject(new TypeError('Network request failed'))
+	      }
+	
+	      xhr.open(request.method, request.url, true)
+	
+	      if (request.credentials === 'include') {
+	        xhr.withCredentials = true
+	      }
+	
+	      if ('responseType' in xhr && support.blob) {
+	        xhr.responseType = 'blob'
+	      }
+	
+	      request.headers.forEach(function(value, name) {
+	        xhr.setRequestHeader(name, value)
+	      })
+	
+	      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit)
+	    })
+	  }
+	  self.fetch.polyfill = true
+	})(typeof self !== 'undefined' ? self : this);
+
+
+/***/ },
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */
+/*!*******************************!*\
+  !*** ./src/common/Slider.jsx ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Slider = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Slider = exports.Slider = function (_React$Component) {
+	    _inherits(Slider, _React$Component);
+	
+	    function Slider(props) {
+	        _classCallCheck(this, Slider);
+	
+	        return _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
+	    }
+	
+	    _createClass(Slider, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "form-group" },
+	                _react2.default.createElement(
+	                    "label",
+	                    { htmlFor: this.props.id },
+	                    this.props.label
+	                ),
+	                _react2.default.createElement("input", { id: this.props.id,
+	                    name: this.props.id,
+	                    type: "range",
+	                    className: "form-control",
+	                    placeholder: this.props.placeholder,
+	                    min: this.props.min,
+	                    max: this.props.max,
+	                    step: this.props.step,
+	                    "aria-describedby": "basic-addon1",
+	                    value: this.props.value,
+	                    onChange: this.props.onSliderChange
+	                }),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "text-danger" },
+	                    this.props.feil
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Slider;
+	}(_react2.default.Component);
 
 /***/ }
 /******/ ]);

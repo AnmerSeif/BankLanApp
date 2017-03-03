@@ -82,6 +82,10 @@
     <Content Include="src\components\Soknader\Soknader.jsx" />
     <Content Include="src\FinnerIkkeSiden.jsx" />
     <Content Include="src\components\SoknadRegistrering\SoknadRegistrering.jsx" />
+    <Content Include="src\common\TextInput.jsx" />
+    <Content Include="src\components\LanKalkulator\LanKalkulatorForm.jsx" />
+    <Content Include="src\components\SoknadRegistrering\SoknadRegistreringForm.jsx" />
+    <Content Include="src\common\Slider.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\index.jsx" />
